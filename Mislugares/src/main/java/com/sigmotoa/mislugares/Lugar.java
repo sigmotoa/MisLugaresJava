@@ -2,6 +2,12 @@ package com.sigmotoa.mislugares;
 
 public class Lugar {
 
+    public Lugar() {
+        fecha=System.currentTimeMillis();
+        posicion=new GeoPunto(0,0);
+        tipo=TipoLugar.OTROS;
+    }
+
     private String nombre,direccion,foto,url,comentario;
     private GeoPunto posicion;
     private int telefono;
