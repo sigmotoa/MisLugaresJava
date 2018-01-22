@@ -7,21 +7,7 @@ public class Lugar {
     private int telefono;
     private long fecha;
     private float valoracion;
-
-    @Override
-    public String toString() {
-        return "Lugar{" +
-                "nombre='" + nombre + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", foto='" + foto + '\'' +
-                ", url='" + url + '\'' +
-                ", comentario='" + comentario + '\'' +
-                ", posicion=" + posicion +
-                ", telefono=" + telefono +
-                ", fecha=" + fecha +
-                ", valoracion=" + valoracion +
-                '}';
-    }
+    private TipoLugar tipo;
 
     public String getNombre() {
         return nombre;
@@ -95,14 +81,42 @@ public class Lugar {
         this.valoracion = valoracion;
     }
 
-    public Lugar(double longitud, double latitud, String nombre, String direccion, String url, String comentario, int telefono, float valoracion) {
+    public TipoLugar getTipo() {
+        return tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Lugar{" +
+                "nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", foto='" + foto + '\'' +
+                ", url='" + url + '\'' +
+                ", comentario='" + comentario + '\'' +
+                ", posicion=" + posicion +
+                ", telefono=" + telefono +
+                ", fecha=" + fecha +
+                ", valoracion=" + valoracion +
+                ", tipo=" + tipo +
+                '}';
+    }
+
+    public void setTipo(TipoLugar tipo) {
+        this.tipo = tipo;
+    }
+
+    public Lugar(double longitud, double latitud, TipoLugar tipo,
+                 String nombre, String direccion,
+                 String url, String comentario,
+                 int telefono, float valoracion) {
+
         fecha=System.currentTimeMillis();
         posicion =new GeoPunto(longitud,latitud);
         this.nombre = nombre;
         this.direccion = direccion;
         this.url = url;
         this.comentario = comentario;
-
+        this.tipo=tipo;
         this.telefono = telefono;
         this.valoracion = valoracion;
     }
